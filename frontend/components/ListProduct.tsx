@@ -5,7 +5,7 @@ import { get, reject } from 'lodash'
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 export const fetcher = (url: string) => fetch(url, { mode: 'cors' }).then((res) => res.json())
-export const DOMAIN = 'http://localhost:3000'
+export const DOMAIN = `http://${get(process, 'env.domain', 'localhost')}:3000`
 export const URL_PRODUCTS = `${DOMAIN}/products`
 
 const requestDeleteProduct = async (id: Number) => {

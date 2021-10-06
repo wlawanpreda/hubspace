@@ -19,10 +19,9 @@ services:
     build: 
       context: backend/.
     restart: always
-    volumes:
-      - ./src:/app/src
     environment:
       TZ: Asia/Bangkok
+      db_host: postgresql
     ports:
       - 3000:3000
   frontend:
@@ -30,8 +29,9 @@ services:
     build: 
       context: frontend/.
     restart: always
-    volumes:
-      - .:/app/
+    environment:
+      TZ: Asia/Bangkok
+      domain: backend
     environment:
       TZ: Asia/Bangkok
     ports:
