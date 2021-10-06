@@ -28,7 +28,8 @@ function ListProduct() {
   }
 
   const actions = ({ id }: { id: Number}) => [
-    <Link href={`/form/${id}`}><EditOutlined key="edit" /></Link>,
+    // eslint-disable-next-line @next/next/link-passhref
+    <Link key={1} href={`/form/${id}`}><EditOutlined key="edit" /></Link>,
     <DeleteOutlined key="delete" onClick={() => actionDelete(id)} />
   ]
   return (
@@ -37,7 +38,7 @@ function ListProduct() {
       <List
         grid={{ gutter: 16, xs: 1, md: 2 }}
         dataSource={data}
-        renderItem={item => (
+        renderItem={(item: any) => (
           <List.Item>
             <Card 
               key={get(item, 'id', 0)}

@@ -11,7 +11,7 @@ const URL_CATEGORY = `${DOMAIN}/category`
 const layout = { labelCol: { span: 8 }, wrapperCol: { span: 16 } };
 const tailLayout = { wrapperCol: { offset: 8, span: 16 } };
 
-const FormProduct = ({ product }) => {
+const FormProduct = ({ product }: any) => {
 
   const router = useRouter()
   const [loading, setLoading] = useState(false)
@@ -48,7 +48,7 @@ const FormProduct = ({ product }) => {
 
 
 
-  const onNameChange = event => setNewCategory(event.target.value);
+  const onNameChange = (event: any) => setNewCategory(event.target.value);
 
   const addItem = async () => {
     if (eq('', newCategory)) return 

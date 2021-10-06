@@ -24,7 +24,8 @@ const Home: NextPage = () => {
             title="List of Products"
             // subTitle="This is a subtitle"
             extra={[
-              <Link href="/form"><Button key="1">Create Product</Button></Link>
+              // eslint-disable-next-line @next/next/link-passhref
+              <Link key={1} href="/form"><Button key="1">Create Product</Button></Link>
             ]}
           >
             <List />
