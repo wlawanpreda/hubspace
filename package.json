@@ -1,0 +1,10 @@
+{
+  "name": "hubspace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "up": "docker-compose up -d --build",
+    "down": "docker-compose down"
+  }
+}
