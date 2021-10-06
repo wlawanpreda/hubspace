@@ -1,0 +1,41 @@
+
+version: "3"
+services:
+  postgresql:
+    image: bitnami/postgresql
+    container_name: postgresql
+    restart: always
+    command: psql -h localhost -d hubspace -U hubspace -c 'create database e2e_test;'
+    volumes:
+      - ./.data/db:/bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      TZ: Asia/Bangkok
+      POSTGRES_DB: hubspace
+      POSTGRES_USER: hubspace
+      POSTGRES_PASSWORD: hubspace
+  backend:
+    container_name: backend-node
+    build: 
+      context: backend/.
+      # dockerfile: dev-dockerfile
+    restart: always
+    volumes:
+      - ./src:/app/src
+    environment:
+      TZ: Asia/Bangkok
+    ports:
+      - 3000:3000
+  frontend:
+    container_name: frontend-node
+    build: 
+      context: frontend/.
+      # dockerfile: dev-dockerfile
+    restart: always
+    volumes:
+      - .:/app/
+    environment:
+      TZ: Asia/Bangkok
+    ports:
+      - 80:80
